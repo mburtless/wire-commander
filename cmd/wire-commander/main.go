@@ -6,9 +6,9 @@ import (
 
 	"github.com/go-openapi/loads"
 
+	"github.com/mburtless/wire-commander/api/handlers"
 	"github.com/mburtless/wire-commander/gen/restapi"
 	"github.com/mburtless/wire-commander/gen/restapi/operations"
-	"github.com/mburtless/wire-commander/api/handlers"
 )
 
 var portFlag = flag.Int("port", 3000, "Port to run this service on")
@@ -32,8 +32,8 @@ func main() {
 	// set the port this service will be run on
 	server.Port = *portFlag
 
-    // handlers
-    api.GetPeerHandler = handlers.NewGetPeer()
+	// handlers
+	api.GetPeerHandler = handlers.NewGetPeer()
 
 	// serve API
 	if err := server.Serve(); err != nil {
