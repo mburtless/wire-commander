@@ -91,7 +91,7 @@ info:
 host: wirecomdr.com
 basePath: /
 schemes:
-  - https
+  - http
 consumes:
   - application/json
 produces:
