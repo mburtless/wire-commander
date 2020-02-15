@@ -6,7 +6,6 @@ paths:
       responses:
         '200':
           $ref: '#/responses/PeerResponse'
-          x-oad-type: reference
     put:
       operationId: UpdatePeer
       summary: 'Updates a peer'
@@ -14,9 +13,7 @@ paths:
         '200':
           description: 'The peer'
           schema:
-            x-oad-type: reference
             $ref: '#/definitions/Peer'
-          x-oad-type: response
       parameters:
         -
           name: PublicKey
@@ -24,16 +21,13 @@ paths:
           description: 'Public key of peer'
           required: true
           schema:
-            x-oad-type: string
             type: string
-          x-oad-type: parameter
     post:
       operationId: CreatePeer
       summary: 'Creates a new peer'
       responses:
         '200':
           description: 'The peer'
-          x-oad-type: response
       parameters:
         -
           name: PublicKey
@@ -41,9 +35,7 @@ paths:
           description: 'Public key of peer to add'
           required: true
           schema:
-            x-oad-type: string
             type: string
-          x-oad-type: parameter
     delete:
       operationId: DeletePeer
       summary: 'Deletes a peer'
@@ -51,10 +43,8 @@ paths:
         '200':
           description: 'Returns empty object'
           schema:
-            x-oad-type: object
             type: object
             title: 'Empty Object'
-          x-oad-type: response
     parameters:
       -
         name: PeerName
@@ -62,8 +52,6 @@ paths:
         description: 'Name of peer'
         required: true
         type: string
-        x-oad-type: parameter
-    x-oad-type: operation
   /peers:
     get:
       operationId: GetPeers
@@ -72,15 +60,11 @@ paths:
         '200':
           description: 'Active peers'
           schema:
-            x-oad-type: array
             type: array
             title: Peers
             description: 'Active peers'
             items:
-              x-oad-type: reference
               $ref: '#/definitions/Peer'
-          x-oad-type: response
-    x-oad-type: operation
   '/peers/{PeerName}/config':
     get:
       operationId: GetConfig
@@ -89,9 +73,7 @@ paths:
         '200':
           description: 'The client tunnel config'
           schema:
-            x-oad-type: string
             type: string
-          x-oad-type: response
     parameters:
       -
         name: PeerName
@@ -99,28 +81,21 @@ paths:
         description: 'Name of peer'
         required: true
         type: string
-        x-oad-type: parameter
-    x-oad-type: operation
 responses:
   PeerResponse:
     description: 'The details of the peer'
     schema:
-      x-oad-type: reference
       $ref: '#/definitions/Peer'
-    x-oad-type: response
 definitions:
   Peer:
-    x-oad-type: object
     type: object
     title: Peer
     properties:
       PeerName:
-        x-oad-type: string
         type: string
         title: 'Peer Name'
         description: 'Name of peer'
       PublicKey:
-        x-oad-type: string
         type: string
         title: 'Public Key'
         description: 'Public key of peer'
