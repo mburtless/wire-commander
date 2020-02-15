@@ -11,31 +11,13 @@ paths:
       summary: 'Updates a peer'
       responses:
         '200':
-          description: 'The peer'
-          schema:
-            $ref: '#/definitions/Peer'
-      parameters:
-        -
-          name: PublicKey
-          in: body
-          description: 'Public key of peer'
-          required: true
-          schema:
-            type: string
+          $ref: '#/responses/PeerResponse'
     post:
       operationId: CreatePeer
       summary: 'Creates a new peer'
       responses:
         '200':
-          description: 'The peer'
-      parameters:
-        -
-          name: PublicKey
-          in: body
-          description: 'Public key of peer to add'
-          required: true
-          schema:
-            type: string
+          $ref: '#/responses/PeerResponse'
     delete:
       operationId: DeletePeer
       summary: 'Deletes a peer'
